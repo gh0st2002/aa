@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página inicial</title>
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="">Página inicial</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
           <span class="navbar-toggler-icon"></span>
@@ -21,13 +22,25 @@
       <div class="container my-5">
         <div class="card" style="width: 100%">
             <div class="card-body">
-              <h5 class="card-title">Bem-vindo ao website A3</h5>
+              <%if (status == "loggedIn" ){%>
+                <h5 class="card-title">Bem-vindo <%= user.email%> </h5>
+              <%}else{%>
+                <h5 class="card-title">Bem-vindo ao website A3</h5>
+              <%}%>
+              
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button class="btn btn-primary"> <a href="/login" style="color: white; text-decoration: none;">Login</a></button>
-              <button class="btn btn-primary"> <a href="/register" style="color: white;">Register</a></button>
+
+              <%if (status=="loggedIn" ){%> 
+                          <button class="btn btn-primary"> <a href="/profile" style="color: white;">Profile</a></button>
+                          <button class="btn btn-primary"> <a href="/logout" style="color: white;">Logout</a></button>
+                <%}else{%>
+                          <button class="btn btn-primary"> <a href="/login" style="color: white; text-decoration: none;">Login</a></button>
+                          <button class="btn btn-primary"> <a href="/register" style="color: white;">Register</a></button>
+               <%}%>
             </div>
           </div>
       </div>
 </body>
+<footer> Feito por Márcio Medeiros </footer>
 </html>
