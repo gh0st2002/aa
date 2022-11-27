@@ -1,5 +1,5 @@
 const logout = (req, res) =>{
 res.clearCookie("userRegistered");
-res.redirect("/")
+res.redirect("/logged")
 }
 module.exports = logout;

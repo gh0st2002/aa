@@ -1,9 +1,11 @@
-const express = require("express");
-const router = express.Router();
-const register = require("./register");
-const login = require("./login"); 
+const express = require("express")
+const login = require("./login")
+const register = require("./register")
 
-router.post("/register", register);
-router.post("/login", login);
 
-module.exports = router;
+const router = express.Router()
+
+router.post("/register", register)
+router.post("/login", login)
+
+module.exports = router

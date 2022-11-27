@@ -18,7 +18,7 @@ const login = async (req, res) => {
                         httpOnly: true
                     }
                     res.cookie("userRegistered", token, cookieOptions);
-                    return res.json({status: "success", success:"Usúario logado com sucesso"})
+                   return res.json({status: "success", success:"Usúario logado com sucesso! Pode acessar sua área"});
                 }
         })
     }
