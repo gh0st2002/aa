@@ -1,14 +1,13 @@
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-decoration: none;
     list-style: none;
     
 }
-
-
 
 .background{
     background-repeat: no-repeat;
@@ -18,11 +17,6 @@
     max-width: 100%;
     height: 100vh;
 }
-
-header{
-
-}
-
 
 .logo{
     font-weight: 500;
@@ -35,13 +29,17 @@ header{
 }
 
 .cabeçalho-link a{
-    color: #111;
+    color: white;
     font-weight: 700;
     transition: 0.3s;
 }
 
 .cabeçalho-link a:hover{
-    color: #c8815f;
+    color: #00c8f6;
+}
+
+.icon{
+    color: #fff;
 }
 
 .icon span{
@@ -50,7 +48,7 @@ header{
 }
 
 .icon span:hover{
-    color: #c8815f;
+    color: #00c8f6;
 }
 
 .Meio{
@@ -65,7 +63,7 @@ header{
 
 .Meio button{
     background-color: #00c8f6;
-    padding: 1rem 3rem 1rem 3rem;
+    padding: 0.5rem 3rem 0.5rem 3rem;
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -108,9 +106,9 @@ section h1{
 }
 
 .cards img:hover{
-     transform: scale(0.9) translateY(-5px);
+     transform: scale(0.5) translateY(-5px);
      cursor: pointer;
-   
+     transition: 0.3s;
      
 }
 
@@ -173,7 +171,7 @@ section h1{
 }
 
 .Container-roupas img:hover{
-    transform: scale(0.9) translateY(-5px);
+    transform: scale(0.5) translateY(-5px);
     cursor: pointer;
     transition: 0.3s;
 
@@ -203,18 +201,23 @@ section h1{
 }
 
 #Contato{
-    display: flex;
     gap: 5rem;
     justify-content: space-around;
-    background-color: #111;
-    padding: 8rem;
-    margin-top: 5rem;
+    background-color: #1f1f1f;
+    padding: 4rem;
     display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, auto));
 }
 
+
+.meio-contato img{
+    gap: 1rem;
+    width: 100px;
+    height: auto;
+}
+
 .meio-contato h3{
-    color: #fff;
+    color: #00c8f6;
     font-size: 23px;
     margin-bottom: 1.6rem;
 }
@@ -225,13 +228,33 @@ section h1{
     color: #555;
 }
 
+.bottom-footer{
+    color: #fff;
+    background-color: #101010;
+    padding: 10px;
+    text-align: center;
+
+}
+
+.top-footer{
+    color: #fff;
+    background-color: #101010;
+    text-align: center;
+    padding: 45px;
+    margin-top: 5rem;
+}
+
 .meio-contato li{
     margin-bottom: 15px;
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    transition: all .35s ease;
 }
 
 .meio-contato li a{
     display: block;
-    color: #555;
+    color: #fff;
     font-weight: 600;
     transition: all .35s ease;
 }
@@ -245,8 +268,10 @@ section h1{
 .content{
  height: calc(100vh - 80px);
  width: 100%;
- background-color: red;
+ padding: 0 5%;
+ display: flex;
 }
+
 
 .menu{
     display: flex;
@@ -256,10 +281,11 @@ section h1{
     text-align: center;
     width: 100%;
     position: fixed;
-    background: transparent;
+    background: #1f1f1f;
+    color: white;
     transition: all .35s ease;
-    background-color: #fff;
-    padding: 14px 14%;
+    /* background-color: ; */
+    padding: 14px 5%;
     height: 80px;
 }
 
@@ -275,4 +301,80 @@ section h1{
     transition: all .35s ease;
     padding: 14px 14%;
     height: 80px;
+}
+
+.left-side{
+    padding-top: 15rem;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    justify-content: center;
+    width: 100%;
+}
+
+.left-side h1{
+    font-size: 50px;
+    color: #00c8f6;
+}
+
+.left-side p, span {
+    color: black;
+}
+
+.left-side h2{
+    font-size: 30px;
+    font-weight: 500;
+}
+.left-side h4{
+    font-size: 15px;
+}
+
+.left-side h3 {
+    color: fff;
+    background-color: #00c8f6;
+    width: fit-content;
+    padding: 3px 3px;
+    border-radius: 5px;
+    
+}
+
+.btn2{
+    text-align: center;
+    display: inline-block;
+    background: #00c8f6;
+    color: #fff;
+    padding: 8px 20px;
+    margin: 30px 0;
+    border-radius: 30px;
+    transition: background 0.5s;
+    weight: 20px;
+}
+
+.btn2:hover{
+    background: white;
+}
+
+.right-side{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.right-side img{
+    padding-top: 8rem;
+}
+
+/* Cart */
+
+#cart-container table{
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#cart-container table thead td{
+    background: #00c8f6;
+    color: #black;
+    border: none;
+    padding: 6px 0;
 }

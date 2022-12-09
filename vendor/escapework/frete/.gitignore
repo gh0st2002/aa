@@ -1,0 +1,5 @@
+logs
+bin/
+tmp
+/vendor/
+index.php

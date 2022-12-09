@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>CAMISA BRASIL NIKE I</title>
+  </head>
+  <body>
+    <header>
+      <div class="menu_produto">
+        <div class="logo">
+          <h1>IceStore</h1>
+        </div>
+        <!--logo-->
+        <%if (status == "loggedIn" ){%>
+          <div class="cabeçalho-link">
+              <li>
+                  <a href="/">Inicio</a>
+              </li>
+                  <a href="/logged">Minha área</a>
+              </li>
+              </li>
+                  <a href="/logout2">Sair</a>
+              </li>
+          </div><!--cabeçalho-link-->
+          <div class="icon">
+              <span><ion-icon name="bag-outline"></ion-icon></span></div><!--icon-->
+              <h4> <strong>Olá, <%= user.email%></strong> </h4>       
+      </div>
+          <%}else{%>
+              <div class="cabeçalho-link">
+                  <li>
+                      <a href="/">Inicio</a>
+                  </li>
+                  <li>
+                      <a href="/login">Faça login</a>
+                  </li>
+                  <li>
+                      <a href="/register">Crie sua conta</a>
+                  </li>
+                  <li>
+                      <a href="/logged">Minha área</a>
+                  </li>
+              </div><!--cabeçalho-link-->
+              <div class="icon"><span><ion-icon name="bag-outline"></ion-icon></span></div><!--icon-->
+          </div>
+          <%}%>
+        </div>
+        <!--cabeçalho-link-->
+      </div>
+    </header>
+    <main class="content">
+      <div class="left-side">
+        <h1>Tênis Nike Dunk High Rebel</h1>
+        <P>
+          Nunca é tarde demais para se mexer. Criado para as quadras e adotado pelas ruas, o Nike Dunk High Rebel eleva o estilo do basquete dos anos 80 a novos patamares. Com um design clássico de cano alto, essência esportiva e entressola elevada, ele se mantém fiel ao DNA do basquete, permitindo canalizar sua confiança a cada passo.
+        </P>
+        <br />
+        <h2>R$899,99</h2>
+        <h4>ou 12x de R$ 75,00</h4>
+        <br />
+        <h5>Escolha o tamanho</h5>
+        <div class="select">
+           <select name="format" id="format">
+              <option selected disabled>Escolha o tamanho</option>
+              <option value="39">39</option>
+              <option value="40">40</option>
+              <option value="42">42</option>
+              <option value="43">43</option>
+              <option value="44">44</option>
+           </select>
+        </div>
+        <form action="/produto2" method="POST">
+          <br />
+          <input type="text" name="cep" id="cep" placeholder="Digite seu cep" />
+          <button type="submit" class="btn btn-primary">Calcule o frete</button>
+          <br />
+          <a
+            target="_blank"
+            href="https://buscacepinter.correios.com.br/app/endereco/index.php"
+            >Não sabe seu cep? Clique aqui</a
+          >
+        </form>
+        <br>
+        <h3 href="#">ADICIONAR AO CARRINHO</h3>
+      </div>
+
+      <div class="right-side">
+        <img src="../js/img/013742N2A4.png" alt="" />
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
