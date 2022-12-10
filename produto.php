@@ -1,6 +1,6 @@
 <?php
 
-require "../vendor/autoload.php";
+require "./vendor/autoload.php";
 
 use EscapeWork\Frete\Correios\PrecoPrazo;
 use EscapeWork\Frete\Correios\Data;
@@ -44,7 +44,7 @@ if (isset($_POST['cep'])) {
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./public/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet" />
@@ -92,11 +92,11 @@ if (isset($_POST['cep'])) {
       <form method="POST">
         <br>
         <input type="text" name="cep" id="cep" placeholder="Digite seu cep" />
-        <button type="submit" class="btn btn-primary">Calcule o frete</button> <br>
-        <a target="_blank" href="https://buscacepinter.correios.com.br/app/endereco/index.php">Não sabe seu cep? Clique aqui</a>
+        <button type="submit" class="btn btn-primary">Calcule o frete</button>
+        <a target="_blank" href="https://buscacepinter.correios.com.br/app/endereco/index.php">Não sabe seu cep? Clique aqui</a> <br>
         <?php if (isset($_POST['cep'])) : ?>
           <div class="row">
-            <h5>PAC: R$<?php echo $resultPAC['cServico']['Valor'] ?>(Prazo: <?php echo $resultPAC['cServico']['PrazoEntrega'] ?>dias)</h5>
+            <h5>PAC: R$<?php echo $resultPAC['cServico']['Valor'] ?>(Prazo: <?php echo $resultPAC['cServico']['PrazoEntrega'] ?>dias)</h5> <br>
             <h5>SEDEX: R$<?php echo $resultSEDEX['cServico']['Valor'] ?>(Prazo: <?php echo $resultSEDEX['cServico']['PrazoEntrega'] ?>dias)</h5>
           </div>
         <?php endif; ?>

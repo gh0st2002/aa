@@ -7,56 +7,54 @@
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>CAMISA BRASIL NIKE I</title>
   </head>
   <body>
     <header>
-      <div class="menu_produto">
-        <div class="logo">
-          <h1>IceStore</h1>
-        </div>
-        <!--logo-->
-        <%if (status == "loggedIn" ){%>
-          <div class="cabeçalho-link">
-              <li>
-                  <a href="/">Inicio</a>
-              </li>
-                  <a href="/logged">Minha área</a>
-              </li>
-              </li>
-                  <a href="/logout2">Sair</a>
-              </li>
-          </div><!--cabeçalho-link-->
-          <div class="icon">
-              <span><ion-icon name="bag-outline"></ion-icon></span></div><!--icon-->
-              <h4> <strong>Olá, <%= user.email%></strong> </h4>       
-      </div>
-          <%}else{%>
+      <div class="menu">
+          <div class="logo">
+              <h1>IceStore</h1>
+          </div><!--logo-->
+          <%if (status == "loggedIn" ){%>
               <div class="cabeçalho-link">
-                  <li>
-                      <a href="/">Inicio</a>
-                  </li>
-                  <li>
-                      <a href="/login">Faça login</a>
-                  </li>
-                  <li>
-                      <a href="/register">Crie sua conta</a>
-                  </li>
-                  <li>
-                      <a href="/logged">Minha área</a>
-                  </li>
-              </div><!--cabeçalho-link-->
-              <div class="icon"><span><ion-icon name="bag-outline"></ion-icon></span></div><!--icon-->
+                  <nav class="navbar">
+                      <a  href="/" class="navbar-brand">Início</a>
+                      <a  href="/logged" class="navbar-brand">Minha área</a>
+                      <form class="form-inline">
+                        <input class="form-control mr-sm-3" type="search" placeholder="Pesquise aqui..." aria-label="Pesquisar">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                      </form>
+                    </nav>
+              </div>
+              <div class="icon">
+                  <span><icon class="fa fa-shopping-cart" style="font-size:36px;color:white"></icon></span></div><!--icon-->
+                  <h4> <strong>Olá, <%= user.email%></strong> </h4>       
           </div>
-          <%}%>
-        </div>
-        <!--cabeçalho-link-->
-      </div>
-    </header>
+              <%}else{%>
+                  <div class="cabeçalho-link">
+                       <nav class="navbar">
+                          <a  href="/" class="navbar-brand">Início</a>
+                          <a  href="/login" class="navbar-brand">Faça login</a>
+                          <a  href="/register" class="navbar-brand">Crie sua conta</a>
+                          <a  href="/logged" class="navbar-brand">Minha área</a>
+                          <form class="form-inline">
+                            <input class="form-control mr-sm-3" type="search" placeholder="Pesquise aqui seu produto..." aria-label="Pesquisar">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                          </form>
+                        </nav>
+                  </div>
+                  <div class="icon">
+                      <span>
+                        <a href="/checkout"><icon class="fa fa-shopping-cart" style="font-size:36px;color:white"></icon></a>
+                      </span>   
+                    </div><!--icon-->
+              </div>
+              <%}%>
+  </header>
     <main class="content">
       <div class="left-side">
         <h1>Tênis Nike Dunk High Rebel</h1>
@@ -69,35 +67,72 @@
         <br />
         <h5>Escolha o tamanho</h5>
         <div class="select">
-           <select name="format" id="format">
-              <option selected disabled>Escolha o tamanho</option>
-              <option value="38">38</option>
-              <option value="40">40</option>
-              <option value="41">41</option>
-              <option value="42">42</option>
-              <option value="43">43</option>
-           </select>
-        </div>
-        <form action="/produto2" method="POST">
-          <br />
-          <input type="text" name="cep" id="cep" placeholder="Digite seu cep" />
-          <button type="submit" class="btn btn-primary">Calcule o frete</button>
-          <br />
-          <a
-            target="_blank"
-            href="https://buscacepinter.correios.com.br/app/endereco/index.php"
-            >Não sabe seu cep? Clique aqui</a
-          >
-        </form>
-        <br>
-        <h3 href="#">ADICIONAR AO CARRINHO</h3>
-        </form>
+          <select name="format" id="format">
+             <option selected disabled>Escolha o tamanho</option>
+             <option value="39">39</option>
+             <option value="40">40</option>
+             <option value="42">42</option>
+             <option value="43">43</option>
+             <option value="44">44</option>
+          </select>
+       </div>
+<br>
+<h5>Calcule o frete</h5>
+<form action="/" method="POST">
+  <input type="text" name="cep" id="cep" placeholder="Digite seu cep" />
+  <button type="submit" class="btn">Calcule o frete</button>
+  <br />
+  <a
+    target="_blank"
+    href="https://buscacepinter.correios.com.br/app/endereco/index.php"
+    >Não sabe seu cep? Clique aqui</a>
+</form>
+<br>
+<a href="" class="btn2">Add to cart</a>
       </div>
-
       <div class="right-side">
-        <img src="tenis1.png" alt="" />
+        <img src="../js/img/tenis1.png" alt="" />
       </div>
     </main>
+
+    <div class="top-footer"> </div>
+
+    <footer class="Contato" id="Contato">
+		<div class="meio-contato">
+			<h3>IceStore</h3>
+    <li>CPNJ: 48.265.682/0001-90</li>
+
+		</div>
+
+		<div class="meio-contato">
+			<h3>Atendimento</h3>
+			<li><a href="">FAQ</a></li>
+			<li><a href="">Fale conosco</a></li>
+			<li><a href="">Politíca de devolução</a></li>
+
+		</div>
+
+		<div class="meio-contato">
+			<h3>Redes Sociais</h3>
+            <li><a href="">Instagram</a></li>
+            <li><a href="">Facebook</a></li>
+            <li><a href="">Youtube</a></li>
+		</div>
+
+		<div class="meio-contato">
+			<h3>Shopping</h3>
+			<li><a href="#">Clothing Store</a></li>
+			<li><a href="#">Trending Shoes</a></li>
+			<li><a href="#">Accessories</a></li>
+			<li><a href="#">Sale</a></li>
+		</div>
+    </footer>
+
+    <div class="bottom-footer">
+        <p>
+            © 2022 Icestore. Todos Os Direitos Reservados.
+        </p>
+    </div>
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script

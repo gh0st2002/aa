@@ -2,7 +2,6 @@ const express = require("express");
 const loggedIn = require("../controllers/loggedIn");
 const logout = require("../controllers/logout");
 const logout2 = require("../controllers/logout2");
-const { calcularPrecoPrazo } = require("correios-brasil");
 
 const router = express.Router();
 
@@ -11,6 +10,14 @@ router.get("/logged", loggedIn, (req, res) => {
     res.render("logged", { status: "loggedIn", user: req.user });
   } else {
     res.render("logged", { status: "no", user: "nothing" });
+  }
+});
+
+router.get("/CAMISA_CORINTHIANS1", loggedIn, (req, res) => {
+  if (req.user) {
+    res.render("CAMISA_CORINTHIANS1", { status: "loggedIn", user: req.user });
+  } else {
+    res.render("CAMISA_CORINTHIANS1", { status: "no", user: "nothing" });
   }
 });
 
@@ -84,31 +91,5 @@ router.get("/register", (req, res) => {
 
 router.get("/logout", logout);
 router.get("/logout2", logout2);
-
-// //rota nova
-// router.get("/CAMISA_BRASIL1", (req, res) => {
-//   res.render(".ejs", { frete: "" });
-// });
-
-// códigos no readme
-// calculo do frete JS - nCdServico: 04014 = SEDEX à vista / 04510 = PAC à vista
-router.post("/CAMISA_BRASIL1", async (req, res) => {
-  const inputCep = req.body.cep;
-  const data = {
-    sCepOrigem: "81200100",
-    sCepDestino: inputCep, // variavel recebida
-    nVlPeso: "1",
-    nCdFormato: "1",
-    nVlComprimento: "20",
-    nVlAltura: "20",
-    nVlLargura: "20",
-    nCdServico: ["04510"],
-    nVlDiametro: "0",
-  };
-
-  const objeto = await calcularPrecoPrazo(data);
-  res.render("CAMISA_BRASIL1.ejs", { frete: objeto[0].Valor || "" });
-
-});
 
 module.exports = router;

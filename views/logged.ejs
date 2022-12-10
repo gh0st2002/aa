@@ -64,14 +64,18 @@
           <button class="btn btn-primary">
             <a href="#" style="color: white">Seus pedidos</a>
           </button>
-          <button class="btn btn-primary">
+          <button class="btn btn-dark">
             <a href="/logout" style="color: white">Sair</a>
           </button>
+          <div class="options">
+            <button class="btn btn-danger" type="submit" id="delete-account">Deletar conta</button>
+            <button class="btn btn-warning" type="submit" id="change-account">Alterar dados da conta</button>
+
+          </div>
           <%}else{%>
           <button class="btn btn-primary">
             <a href="/login" style="color: white; text-decoration: none"
-              >Faça login</a
-            >
+              >Faça login</a>
           </button>
           <button class="btn btn-primary">
             <a href="/register" style="color: white">Cadastre-se</a>

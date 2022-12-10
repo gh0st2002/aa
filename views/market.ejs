@@ -24,14 +24,21 @@
                         <nav class="navbar">
                             <a  href="/" class="navbar-brand">Início</a>
                             <a  href="/logged" class="navbar-brand">Minha área</a>
+                            <a  href="/logout" class="navbar-brand">Sair</a>
                             <form class="form-inline">
                               <input class="form-control mr-sm-3" type="search" placeholder="Pesquise aqui..." aria-label="Pesquisar">
                               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
                             </form>
                           </nav>
                     </div><!--cabeçalho-link-->
-                    <div class="icon">
-                        <span><a href="/checkout"><icon class="fa fa-shopping-cart" style="font-size:36px;color:white"></icon></a></span></div><!--icon-->
+                    <div class="cart">
+                        <button type="button" id="cart-btn">
+                            <ion-icon name="bag-outline"></ion-icon>
+                            <span id="cart-count-info">0</span>
+                             </button> 
+                     
+                    
+                </div><!--cart-->
                         <h4> <strong>Olá, <%= user.email%></strong> </h4>       
                 </div>
                     <%}else{%>
@@ -42,13 +49,20 @@
                                 <a  href="/register" class="navbar-brand">Crie sua conta</a>
                                 <a  href="/logged" class="navbar-brand">Minha área</a>
                                 <form class="form-inline">
-                                  <input class="form-control mr-sm-3" type="search" placeholder="Pesquise aqui seu produto..." aria-label="Pesquisar">
+                                  <input class="form-control mr-sm-3" type="search" placeholder="Pesquise aqui..." aria-label="Pesquisar">
                                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
                                 </form>
                               </nav>
                         </div><!--cabeçalho-link-->
-                        <div class="icon">
-                            <span><a href="/checkout"><icon class="fa fa-shopping-cart" style="font-size:36px;color:white"></icon></a></span></div><!--icon-->
+                        <div class="cart">
+                
+                                <button type="button" id="cart-btn">
+                                    <ion-icon name="bag-outline"></ion-icon>
+                                    <span id="cart-count-info">0</span>
+                                     </button> 
+                             
+                            
+                        </div><!--cart-->
                     </div>
                     <%}%>
         </header>
@@ -57,38 +71,39 @@
             <h1>NOVOS MODELOS</h1>
             <P>Novos modelos todos os dias!</P>
             <button>Nova coleção</button>
-    <section>
+    <section class="camisastime">
         <h1>CAMISAS DE TIME</h1>
         <div class="Container-card-1">
             <div class="cards">
-               <a href="/CAMISA_BRASIL1"> <img src="../js/img/COPA1.png"> </a> 
+               <a href="/CAMISA_BRASIL1"> <img src="../js/img/CAMISA_COPA1.png"> </a> 
             </div><!--cards-->
 
             <div class="cards">
-                <a href="/CAMISA_BRASIL2"> <img src="../js/img/COPA2.png"> </a> 
+                <a href="/CAMISA_BRASIL2"> <img src="../js/img/CAMISA_COPA2.png"> </a> 
             </div><!--cards-->
         </div><!--Container-card-1-->
 
         <div class="Container-card-1">
             <div class="cards">
-                <img src="../js/img/Untitled - 2.png">
+                <a href="/CAMISA_CORINTHIANS1"> <img src="../js/img/CAMISA_CORINTHIANS.png" alt="CAMISA DO CORITHIANS PRETA NIKE"> </a>
             </div><!--cards-->
+
     </section>
-    <section>
+    <section class="tenis">
         <h1>TÊNIS</h1>
         <div class="Container-card-1">
             <div class="cards">
-               <a href="/NIKE_DUNKLOW1"> <img src="/tenis1.png"> </a> 
+               <a href="/NIKE_DUNKLOW1"> <img src="../js/img/TENIS_NIKE1.png"> </a> 
             </div><!--cards-->
 
             <div class="cards">
-                <a href="/NIKE_DUNKLOW2"> <img src="../js/img/013742N2A4.png"> </a> 
+                <a href="/NIKE_DUNKLOW2"> <img src="../js/img/TENIS_NIKE2.png"> </a> 
             </div><!--cards-->
         </div><!--Container-card-1-->
 
         <div class="Container-card-1">
             <div class="cards">
-                <a href="/NIKE_DUNKLOW3"> <img src="../js/img/01714451A4.png"> </a> 
+                <a href="/NIKE_DUNKLOW3"> <img src="../js/img/TENIS_NIKE3.png"> </a> 
             </div><!--cards-->
     </section>
 
@@ -119,19 +134,19 @@
        </div><!--roupa-->
 
        <div class="roupa">
-        <a href="/produto">
+        <a href="#">
             <img src="../js/img/Bone3.jfif" alt="">
-            <p>Lorem Ipsum dizgi</p>
-            <h5>$188</h5>
-            <ion-icon name="cart-outline"></ion-icon>
-        </a>
+            <p>Lorem Ipsum dizgi</p> </a>
+            <h5>R$188</h5>
+            <button> <ion-icon name="cart-outline"></ion-icon> </button>
+        
 
     </div><!--roupa-->
 
    <div class="roupa">
-     <img src="../js/img/Bone4.jfif" alt="">
-    <p>Lorem Ipsum dizgi</p>
-    <h5>$188</h5><ion-icon name="cart-outline"></ion-icon>
+     <img src="../js/img/Bone4.jfif" alt="boné NY BRANCO">
+    <p>Boné NY BRANCO COM CIANO</p>
+    <h5>R$59,90</h5><ion-icon name="cart-outline"></ion-icon>
   </div><!--roupa-->
  </div><!--container-roupas-->
     </section>
@@ -158,14 +173,14 @@
 		<div class="meio-contato">
 			<h3>Atendimento</h3>
 			<li><a href="">FAQ</a></li>
-			<li><a href="">Fale conosco</a></li>
+			<li><a target="_blank" href="https://api.whatsapp.com/send/?phone=558494762340&text&type=phone_number&app_absent=0">Fale conosco</a></li>
 			<li><a href="">Politíca de devolução</a></li>
 
 		</div>
 
 		<div class="meio-contato">
 			<h3>Redes Sociais</h3>
-            <li><a href="">Instagram</a></li>
+            <li><a target="_blank" href="https://www.instagram.com/ice_storern/">Instagram</a></li>
             <li><a href="">Facebook</a></li>
             <li><a href="">Youtube</a></li>
 		</div>

@@ -38,6 +38,10 @@
     color: #00c8f6;
 }
 
+#cart button{
+    color: #323232;
+}
+
 .icon{
     color: #fff;
 }
@@ -280,11 +284,10 @@ section h1{
     align-items: center;
     text-align: center;
     width: 100%;
-    position: fixed;
+    /* position: fixed; */
     background: #1f1f1f;
     color: white;
     transition: all .35s ease;
-    /* background-color: ; */
     padding: 14px 5%;
     height: 80px;
 }
@@ -304,7 +307,7 @@ section h1{
 }
 
 .left-side{
-    padding-top: 15rem;
+    padding-top: 10rem;
     display: flex;
     flex-direction: column;
     height: 70%;
@@ -353,6 +356,21 @@ section h1{
 .btn2:hover{
     background: white;
 }
+.btn3{
+    text-align: center;
+    display: inline-block;
+    background: #1f1f1f;
+    color: #fff;
+    padding: 8px 20px;
+    margin: 30px 0;
+    border-radius: 30px;
+    transition: background 0.5s;
+    weight: 20px;
+}
+
+.btn3:hover{
+    background: white;
+}
 
 .right-side{
     width: 100%;
@@ -377,4 +395,21 @@ section h1{
     color: #black;
     border: none;
     padding: 6px 0;
+}
+
+#cart-btn{
+    border: none;
+    font-size: 1.5rem;
+    background: none;
+    color var(--granity-gray);
+    position: relative;
+    color: white;
+}
+
+#cart-count-info{
+    position: absolute;
+    top: -12px;
+    right: -15px;
+    background: var (--fire-bush);
+    color: white;
 }
