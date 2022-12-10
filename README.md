@@ -9,8 +9,7 @@ Página de Ecommerce com login e cadastro (12/22)
 
 in progress:
 {Desenvolver carrinho de compras} <-
-{Adicionar nome no cadastro} <-
+{Atualizar sistema de login e cadastro} <-
 {}
 
-João Paulo Tenório da Silva - RA: 1282118953
 Marcio de Medeiros Rios Tavares - RA: 1282118259
