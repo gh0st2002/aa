@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>CAMISA BRASIL NIKE I</title>
+    <title>Icestore</title>
   </head>
   <body>
     <header>
@@ -25,13 +25,20 @@
                       <a  href="/" class="navbar-brand">Início</a>
                       <a  href="/logged" class="navbar-brand">Minha área</a>
                       <form class="form-inline">
-                        <input class="form-control mr-sm-3" type="search" placeholder="Pesquise aqui seu produto..." aria-label="Pesquisar">
+                        <input class="form-control mr-sm-3" type="search" placeholder="Pesquise aqui..." aria-label="Pesquisar">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
                       </form>
                     </nav>
               </div>
-              <div class="icon">
-                  <span><icon class="fa fa-shopping-cart" style="font-size:36px;color:white"></icon></span></div><!--icon-->
+              <div class="cart">
+                
+                <button type="button" id="cart-btn">
+                    <ion-icon name="bag-outline"></ion-icon>
+                    <span id="cart-count-info">0</span>
+                     </button> 
+             
+            
+        </div><!--cart-->
                   <h4> <strong>Olá, <%= user.email%></strong> </h4>       
           </div>
               <%}else{%>
@@ -47,14 +54,21 @@
                           </form>
                         </nav>
                   </div>
-                  <div class="icon">
-                      <span><icon class="fa fa-shopping-cart" style="font-size:36px;color:white"></icon></span></div><!--icon-->
+                  <div class="cart">
+                
+                    <button type="button" id="cart-btn">
+                        <ion-icon name="bag-outline"></ion-icon>
+                        <span id="cart-count-info">0</span>
+                         </button> 
+                 
+                
+            </div><!--cart-->
               </div>
               <%}%>
   </header>
     <main class="content">
       <div class="left-side">
-        <h1>Camisa Nike Brasil II 2022/23 Jogador Masculina</h1>
+        <h1>Camisa Nike Brasil 2 2022/23 Jogador Masculina</h1>
         <P
           >A Coleção da Seleção Brasileira de 2022 combina a icônica estampa da
           onça-pintada com design inovador que mantém seu corpo seco mesmo no
@@ -65,7 +79,7 @@
         <h2>R$699,99</h2>
         <h4>ou 12x de R$ 58,33</h4>
 <br>
-        <h5>Escolha o tamanho</h5>
+<h5>Escolha o tamanho</h5>
 <div class="select">
    <select name="format" id="format">
       <option selected disabled>Escolha o tamanho</option>
@@ -77,6 +91,31 @@
    </select>
 </div>
 <br>
+<h5>Escolha a quantidade</h5>
+<div>
+<select name="format" id="format">
+
+  <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+ </select>
+</div>
+
+<div class="buy">
+  <a href="" class="btn2" id="">Adicionar ao carrinho</a>
+  <a href="" class="btn3" id="buy-now">Comprar agora</a>
+</div>
+
 <h5>Calcule o frete</h5>
 <form action="/" method="POST">
   <input type="text" name="cep" id="cep" placeholder="Digite seu cep" />
@@ -87,11 +126,10 @@
     href="https://buscacepinter.correios.com.br/app/endereco/index.php"
     >Não sabe seu cep? Clique aqui</a>
 </form>
-<br>
-<a href="" class="btn2">Add to cart</a>
+
       </div>
       <div class="right-side">
-        <img src="COPA2.png" alt="" />
+        <img src="../js/img/CAMISA_COPA2.png" alt="Camisa da copa do mundo Nike" />
       </div>
     </main>
 
@@ -143,5 +181,6 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+    <script src="/controllers/shoppingCart.js"></script>
   </body>
 </html>
