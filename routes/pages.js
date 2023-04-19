@@ -2,7 +2,6 @@ const express = require("express");
 const loggedIn = require("../controllers/loggedIn");
 const logout = require("../controllers/logout");
 const logout2 = require("../controllers/logout2");
-const { calcularPrecoPrazo } = require("correios-brasil");
 
 const router = express.Router();
 

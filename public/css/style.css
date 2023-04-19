@@ -307,7 +307,11 @@ section h1{
 }
 
 .left-side{
+<<<<<<< HEAD
     padding-top: 20rem;
+=======
+    padding-top: 10rem;
+>>>>>>> ad0e6571c19792576a8289de858f85b5a51473eb
     display: flex;
     flex-direction: column;
     height: 70%;

@@ -1,10 +1,47 @@
+<?php
+
+require "./vendor/autoload.php";
+
+use EscapeWork\Frete\Correios\PrecoPrazo;
+use EscapeWork\Frete\Correios\Data;
+use EscapeWork\Frete\FreteException;
+
+if (isset($_POST['cep'])) {
+  $cepDestino = $_POST['cep'];
+
+  $frete = new PrecoPrazo();
+  try {
+    $frete->setCodigoServico(Data::PAC)
+      ->setCepOrigem('05593970')   # apenas numeros, sem hifen(-)
+      ->setCepDestino($cepDestino) # apenas numeros, sem hifen(-)
+      ->setComprimento(30)              # obrigatorio
+      ->setAltura(30)                   # obrigatorio
+      ->setLargura(30)                  # obrigatorio
+      ->setDiametro(30)                 # obrigatorio
+      ->setPeso(0.5);                   # obrigatorio
+
+
+    $resultPAC = clone $frete->calculate();
+
+    $frete->setCodigoServico(Data::SEDEX);
+
+    $resultSEDEX = clone $frete->calculate();
+  } catch (FreteException $e) {
+    // trate o erro adequadamente (e não escrevendo na tela)
+    echo $e->getMessage();
+    echo $e->getCode(); // este código é o código de erro dos correios
+    // pode ser usado pra dar mensagens como CEP inválido para o cliente
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="./public/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
@@ -19,29 +56,6 @@
           <div class="logo">
               <h1>IceStore</h1>
           </div><!--logo-->
-          <%if (status == "loggedIn" ){%>
-              <div class="cabeçalho-link">
-                  <nav class="navbar">
-                      <a  href="/" class="navbar-brand">Início</a>
-                      <a  href="/logged" class="navbar-brand">Minha área</a>
-                      <form class="form-inline">
-                        <input class="form-control mr-sm-3" type="search" placeholder="Pesquise aqui..." aria-label="Pesquisar">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-                      </form>
-                    </nav>
-              </div>
-              <div class="cart">
-                
-                <button type="button" id="cart-btn">
-                    <ion-icon name="bag-outline"></ion-icon>
-                    <span id="cart-count-info">0</span>
-                     </button> 
-             
-            
-        </div><!--cart-->
-                  <h4> <strong>Olá, <%= user.email%></strong> </h4>       
-          </div>
-              <%}else{%>
                   <div class="cabeçalho-link">
                        <nav class="navbar">
                           <a  href="/" class="navbar-brand">Início</a>
@@ -64,7 +78,6 @@
                 
             </div><!--cart-->
               </div>
-              <%}%>
   </header>
     <main class="content">
       <div class="left-side">
@@ -112,28 +125,28 @@
 </div>
 
 <div class="buy">
-<<<<<<< HEAD
   <a href="" class="btn2" id="">Adicionar ao carrinho</a>
-=======
-  <a href="" class="btn2" id="add-cart">Adicionar ao carrinho</a>
->>>>>>> ad0e6571c19792576a8289de858f85b5a51473eb
   <a href="" class="btn3" id="buy-now">Comprar agora</a>
 </div>
 
 <h5>Calcule o frete</h5>
-<form action="/" method="POST">
-  <input type="text" name="cep" id="cep" placeholder="Digite seu cep" />
-  <button type="submit" class="btn">Calcule o frete</button>
-  <br />
-  <a
-    target="_blank"
-    href="https://buscacepinter.correios.com.br/app/endereco/index.php"
-    >Não sabe seu cep? Clique aqui</a>
-</form>
+<form method="POST">
+        <input type="text" name="cep" id="cep" placeholder="Digite seu cep" />
+        <button type="submit" class="btn btn-primary">Calcule o frete</button> <br>
+        <a target="_blank" href="https://buscacepinter.correios.com.br/app/endereco/index.php">Não sabe seu cep? Clique aqui</a>
+        <?php if (isset($_POST['cep'])) : ?>
+          <div class="row">
+            <h5>PAC: R$<?php echo $resultPAC['cServico']['Valor'] ?>(Prazo: <?php echo $resultPAC['cServico']['PrazoEntrega'] ?>dias)</h5>
+          </div>
+          <div class="row">
+          <h5>SEDEX: R$<?php echo $resultSEDEX['cServico']['Valor'] ?>(Prazo: <?php echo $resultSEDEX['cServico']['PrazoEntrega'] ?>dias)</h5>
+          </div>
+        <?php endif; ?>
+      </form>
 
       </div>
       <div class="right-side">
-        <img src="../js/img/CAMISA_COPA1.png" alt="Camisa da copa do mundo Nike" />
+        <img src="./public/js/img/CAMISA_COPA1.png" alt="Camisa da copa do mundo Nike" />
       </div>
     </main>
 
